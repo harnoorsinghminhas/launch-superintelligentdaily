@@ -24,8 +24,9 @@ There is no live checkout link yet (the only Playbook link in Stripe is TEST mod
 (an `https://buy.stripe.com/...` link); the button then becomes "Buy the Playbook" and opens it in a new tab. Nothing else changes.
 
 ## Live data
-"This hour" reads `https://media.theagentsignal.com/ironman/audio/si-preview/hourly/latest.json` (CORS `*`) and shows a calm "warming up"
-state if it cannot. The media host is in the CSP `connect-src` and `media-src` (the policy is a `<meta>` tag; Pages cannot set headers).
+"This hour" reads `https://siagentsignal.com/data/latest.json` (GitHub Pages, CORS `*`, mirrored hourly from the media-host feed, same schema) and shows a calm
+"warming up" state if it cannot. The original feed on `media.theagentsignal.com` drops CORS headers when Chrome sends its automatic `priority` header, so only the
+hourly mp3 is still loaded from the media host (`<audio>` needs no CORS). `connect-src` allows siagentsignal.com, `media-src` allows the media host (the policy is a `<meta>` tag; Pages cannot set headers).
 
 ## Sign-up
 POSTs `{email, hp, site: "superintelligentdaily.com", landing_path, tz, query?}` to the Signal API `request-link`. CORS for this origin is already allowed.

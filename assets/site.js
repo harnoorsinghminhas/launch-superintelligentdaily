@@ -5,7 +5,8 @@
 
 var API = "https://acp9reat3l.execute-api.us-east-1.amazonaws.com/signal/request-link";
 var SITE = "superintelligentdaily.com";
-var HOUR_URL = "https://media.theagentsignal.com/ironman/audio/si-preview/hourly/latest.json";
+/* The JSON is read from siagentsignal.com (GitHub Pages, ACAO *, mirrored hourly): the media host drops CORS headers when Chrome sends its automatic priority header. Only the mp3 stays on the media host (<audio> needs no CORS). */
+var HOUR_URL = "https://siagentsignal.com/data/latest.json";
 var MEDIA_HOST = "https://media.theagentsignal.com/";
 /* PLAYBOOK LINK SLOT: paste the LIVE secure checkout link for the AI-Era Defense Playbook here (an https://buy.stripe.com/... link made in
    the Stripe dashboard). While this is empty the button says "Email me the Playbook link" and goes to the sign-up box. */
