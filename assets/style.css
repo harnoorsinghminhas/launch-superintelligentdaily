@@ -1,0 +1,78 @@
+/* Superintelligent Daily: launching soon. Palette tokens are the only per-site part (:root); everything else is the shared holding-page layout. */
+:root{--bg:#FAF8FF;--stage:#ECE6FF;--ink:#1B1340;--ink2:#3C3566;--muted:#5C5683;--line:#7F78AB;--field:#FFFFFF;--btn:#6C4CF1;--btnink:#FFFFFF;--btnhover:#5A3BD9;--link:#5A3BD9;--pillbg:#FFC94D;--pillink:#1B1340;--focus:#6C4CF1;--err:#A12C3A;--okbg:#FFFFFF;--cloud:#E3DCFF;--body:#FFFFFF;--shade:#E3DCFF;--nose:#6C4CF1;--band:#FFC94D;--fin:#6C4CF1;--ring:#FFC94D;--glass:#1B1340;--glint:#ECE6FF;--nozzle:#3C3566;--flame1:#FFC94D;--flame2:#FFF0C2;--m1:#FFC94D;--m2:#FFE59A;--spark:#FFC94D;--accent:#5A3BD9;--display:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;--sans:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.55 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+[hidden]{display:none!important}
+a{color:var(--link);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--btn);color:var(--btnink);padding:10px 14px;border-radius:8px;z-index:9;font-weight:700}
+.skip:focus{left:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1040px;margin:0 auto;padding:20px 22px 32px;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+header{display:flex;justify-content:center;padding:6px 0 0}
+.brand{display:inline-flex;border-radius:8px}
+.logo{display:block;height:38px;width:auto;max-width:100%}
+main{flex:1;display:grid;justify-items:center;align-content:center;gap:4px;text-align:center;padding:6px 0 8px}
+.stage{width:min(76vw,330px);margin:0 auto}
+.rocket{display:block;width:100%;height:auto;overflow:visible}
+.copy{display:flex;flex-direction:column;align-items:center;width:100%}
+.pill{display:inline-block;margin:6px 0 0;padding:7px 14px;border-radius:999px;background:var(--pillbg);color:var(--pillink);font:700 .75rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+h1{margin:.32em 0 .28em;font:800 clamp(2.5rem,10.5vw,3.75rem)/1.02 var(--display);letter-spacing:-.02em}
+.lead{max-width:34rem;margin:0 0 22px;color:var(--ink2);font-size:1.125rem}
+.join{width:100%;max-width:460px;text-align:left}
+.join label.lbl{display:block;margin:0 0 6px;font-weight:700;font-size:.9375rem}
+.row{display:flex;flex-direction:column;gap:10px}
+input[type=email]{width:100%;min-width:0;font:inherit;color:var(--ink);background:var(--field);border:2px solid var(--line);border-radius:12px;padding:13px 15px;min-height:50px}
+input[type=email]::placeholder{color:var(--muted);opacity:1}
+input[aria-invalid=true]{border-color:var(--err)}
+.btn{font:700 1.0625rem/1.2 var(--sans);min-height:50px;padding:13px 20px;border:0;border-radius:12px;background:var(--btn);color:var(--btnink);cursor:pointer;transition:background-color .15s ease}
+.btn:hover{background:var(--btnhover)}
+.btn:disabled{opacity:.65;cursor:progress}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.fine{margin:10px 0 0;font-size:.875rem;color:var(--muted)}
+.err{margin:8px 0 0;min-height:1.4em;font-size:.9375rem;font-weight:600;color:var(--err)}
+.err:empty{min-height:0;margin:0}
+.done{width:100%;max-width:460px;text-align:left;background:var(--okbg);border:2px solid var(--line);border-radius:14px;padding:18px 20px}
+.done h2{margin:0 0 6px;font:700 1.375rem/1.2 var(--display)}
+.done p{margin:0;color:var(--ink2)}
+.note{max-width:34rem;margin:20px 0 0;font-size:.9375rem;color:var(--muted)}
+footer{padding-top:24px;text-align:center;font-size:.875rem;color:var(--muted)}
+.ns{margin:10px 0 0;font-size:.9375rem;color:var(--ink2)}
+
+/* rocket colours: flat solids, no gradients */
+.c-stage{fill:var(--stage)}
+.c-body{fill:var(--body)}.c-shade{fill:var(--shade)}.c-nose{fill:var(--nose)}.c-band{fill:var(--band)}.c-fin{fill:var(--fin)}
+.c-ring{fill:var(--ring)}.c-glass{fill:var(--glass)}.c-glint{fill:var(--glint)}.c-nozzle{fill:var(--nozzle)}
+.c-flame1{fill:var(--flame1)}.c-flame2{fill:var(--flame2)}.c-cloud,.c-cloud *{fill:var(--cloud)}
+.sp{fill:var(--spark)}
+.fill-m1{fill:var(--m1)}.fill-m2{fill:var(--m2)}.fill-badge-ink{fill:var(--glass)}
+.stroke{fill:none;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.stroke.m1{stroke:var(--m1)}.stroke.m2{stroke:var(--m2)}.stroke.badge-ink{stroke:var(--glass);stroke-width:5}
+
+/* a gentle launch: lift-off once, then a slow hover; flame flickers, smoke puffs, sparkles twinkle */
+.rocket-g{animation:liftoff 1.8s cubic-bezier(.2,.8,.2,1) both,hover 4.4s ease-in-out 1.8s infinite}
+.flame{transform-box:fill-box;transform-origin:50% 0%;animation:flicker .6s ease-in-out infinite alternate}
+.puff{transform-box:fill-box;transform-origin:center;animation:puff 2.8s ease-out infinite;opacity:0}
+.p2{animation-delay:.9s}.p3{animation-delay:1.8s}
+.sp{transform-box:fill-box;transform-origin:center;animation:twinkle 3.6s ease-in-out infinite}
+.sparks .sp:nth-child(2){animation-delay:1.2s}.sparks .sp:nth-child(3){animation-delay:2.2s}
+@keyframes liftoff{from{transform:translateY(46px)}to{transform:translateY(0)}}
+@keyframes hover{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes flicker{from{transform:scaleY(.88) scaleX(.96)}to{transform:scaleY(1.08) scaleX(1.02)}}
+@keyframes puff{0%{opacity:.9;transform:translateY(0) scale(.6)}100%{opacity:0;transform:translateY(26px) scale(1.5)}}
+@keyframes twinkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.puff{opacity:0}}
+
+@media (min-width:520px){.row{flex-direction:row}.btn{flex:none}}
+@media (min-width:900px){
+  .wrap{padding-top:28px}
+  main{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);column-gap:56px;text-align:left;justify-items:start;align-content:center}
+  .copy{grid-column:1;grid-row:1;align-items:flex-start}
+  .stage{grid-column:2;grid-row:1;width:min(100%,400px);justify-self:center}
+  header{justify-content:flex-start}
+  .logo{height:44px}
+  h1{font-size:clamp(3rem,4.5vw,4.2rem)}
+  footer{text-align:left}
+}
