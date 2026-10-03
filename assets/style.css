@@ -76,3 +76,5 @@ footer{padding-top:24px;text-align:center;font-size:.875rem;color:var(--muted)}
   h1{font-size:clamp(3rem,4.5vw,4.2rem)}
   footer{text-align:left}
 }
+
+.topic{margin:.2rem 0 .4rem;font-weight:700;font-size:clamp(1.05rem,2.6vw,1.35rem);letter-spacing:.01em;line-height:1.35}
