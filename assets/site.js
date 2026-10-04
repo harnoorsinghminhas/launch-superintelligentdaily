@@ -201,7 +201,7 @@ $$("[data-reserve]").forEach(function (b) {
     lastBtn = b; $("#dlgH").textContent = "Reserve " + T.n;
     var dl = clear($("#dlgFour"));
     row(dl, "1. What you get", T.get); row(dl, "2. Price", T.price); row(dl, "3. What you save", T.save);
-    row(dl, "4. Deposit", T.dep + ", refundable on request before launch only. It reserves the founding price; it is not a subscription payment. All-in: no tax or fees added.");
+    row(dl, "4. Deposit", T.dep + ", refundable on request before launch only. It reserves the founding price; it is not a subscription payment. The price shown is the price you pay at checkout.");
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
   });
 });
