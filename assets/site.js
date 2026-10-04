@@ -189,9 +189,9 @@ loadHour();
 
 /* ---------- reserve dialog: honest, nothing is charged ---------- */
 var TIERS = {
-  pro: { n: "Pro", get: "Your role brief every weekday, the full hourly radio-style brief, three lanes in full, full rumor and fact detail.", price: "Launches at $9.99/mo ($99/yr). Founding price $7.99/mo or $79/yr, locked while you stay subscribed.", save: "$2/mo · $24/yr · 20%", dep: "$9.99" },
-  max: { n: "MAX", get: "Everything in Pro with every lane in full, morning and evening deep dives (learning, no news), all 24 white papers, the member forum.", price: "Launches at $19.99/mo ($199/yr). Founding price $14.99/mo or $149/yr, locked while you stay subscribed.", save: "$5/mo · $60/yr · 25%", dep: "$29" },
-  ultra: { n: "Ultra", get: "Everything in MAX, the 21-book library, training by job title, the full Defense Playbook and the insider circle.", price: "Launches at $99.99/mo ($999/yr). Founding price $69.99/mo or $699/yr, locked while you stay subscribed.", save: "$30/mo · $360/yr · 30%", dep: "$99" }
+  pro: { n: "Pro", get: "Your role brief every weekday, the full hourly radio-style brief, three lanes in full, full rumor and fact detail.", price: "Launches at $9.99/mo ($99/yr). Founding price $7.99/mo or $79/yr, yours if you opt in at launch, kept while you stay subscribed.", save: "Nothing renews or converts on its own. At launch we email you a link: opt in and your deposit counts toward your first payment, or do nothing and it is refunded in full.", dep: "$9.99" },
+  max: { n: "MAX", get: "Everything in Pro with every lane in full, morning and evening deep dives (learning, no news), all 24 white papers, the member forum.", price: "Launches at $19.99/mo ($199/yr). Founding price $14.99/mo or $149/yr, yours if you opt in at launch, kept while you stay subscribed.", save: "Nothing renews or converts on its own. At launch we email you a link: opt in and your deposit counts toward your first payment, or do nothing and it is refunded in full.", dep: "$29" },
+  ultra: { n: "Ultra", get: "Everything in MAX, the 21-book library, training by job title, the full Defense Playbook and the insider circle.", price: "Launches at $99.99/mo ($999/yr). Founding price $69.99/mo or $699/yr, yours if you opt in at launch, kept while you stay subscribed.", save: "Nothing renews or converts on its own. At launch we email you a link: opt in and your deposit counts toward your first payment, or do nothing and it is refunded in full.", dep: "$99" }
 };
 var dlg = $("#dlg"), lastBtn = null;
 function row(dl, k, v) { var d = el("div"); d.appendChild(el("dt", null, k)); d.appendChild(el("dd", null, v)); dl.appendChild(d); }
@@ -200,10 +200,10 @@ $$("[data-reserve]").forEach(function (b) {
     var T = TIERS[b.getAttribute("data-reserve")]; if (!T) return;
     lastBtn = b; $("#dlgH").textContent = "Reserve " + T.n;
     var pu = b.getAttribute("data-pay-url"); $("#dlgGo").textContent = pu ? "Reserve for " + T.dep : "Email me the reservation link";
-    if (pu) $("#dlgFine").textContent = "Secure checkout by Stripe opens in this tab. The deposit is refundable on request before launch.";
+    if (pu) $("#dlgFine").textContent = "Secure checkout by Stripe opens in this tab. The deposit is refundable in full until you opt in at launch.";
     var dl = clear($("#dlgFour"));
-    row(dl, "1. What you get", T.get); row(dl, "2. Price", T.price); row(dl, "3. What you save", T.save);
-    row(dl, "4. Deposit", T.dep + ", refundable on request before launch only. It reserves the founding price; it is not a subscription payment. The price shown is the price you pay at checkout.");
+    row(dl, "1. What you get", T.get); row(dl, "2. Price", T.price); row(dl, "3. Good to know", T.save);
+    row(dl, "4. Deposit", T.dep + ", refundable in full until you opt in at launch. It holds your place at the founding price; it is not a subscription. The price shown is the price you pay at checkout.");
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
   });
 });
