@@ -167,7 +167,7 @@ function renderHour(d) {
   var au = safeUrl(d.audio_url);
   if (au && au.indexOf(MEDIA_HOST) === 0 && d.audio_status !== "error") {
     var w = el("div", "hour-audio"), a = document.createElement("audio");
-    w.appendChild(el("b", null, "Hear this hour" + (d.audio_seconds ? " (" + mmss(d.audio_seconds) + ")" : "")));
+    w.appendChild(el("b", null, "Hear this hour" + (d.audio_seconds ? " (" + mmss(d.audio_seconds) + ")" : "") + ". AI-generated voices."));
     a.controls = true; a.preload = "none"; a.src = au; a.setAttribute("aria-label", "This hour's audio brief"); w.appendChild(a); box.appendChild(w);
   }
   if (ticker.length) {
