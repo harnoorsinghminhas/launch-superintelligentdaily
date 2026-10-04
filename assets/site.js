@@ -10,7 +10,7 @@ var HOUR_URL = "https://siagentsignal.com/data/latest.json";
 var MEDIA_HOST = "https://media.theagentsignal.com/";
 /* PLAYBOOK LINK SLOT: paste the LIVE secure checkout link for the AI-Era Defense Playbook here (an https://buy.stripe.com/... link made in
    the Stripe dashboard). While this is empty the button says "Email me the Playbook link" and goes to the sign-up box. */
-var PLAYBOOK_URL = "";
+var PLAYBOOK_URL = "https://buy.stripe.com/eVqcN45OB50a1e07Jc8Vi0v?client_reference_id=superintelligentdaily-com";
 
 var LANDING_RE = /^\/[A-Za-z0-9._~!$&'()*+,;=:@%\/-]{0,199}$/;   // same shape the API accepts
 var EMAIL_RE = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)*\.[A-Za-z]{2,}$/;
@@ -199,6 +199,8 @@ $$("[data-reserve]").forEach(function (b) {
   b.addEventListener("click", function () {
     var T = TIERS[b.getAttribute("data-reserve")]; if (!T) return;
     lastBtn = b; $("#dlgH").textContent = "Reserve " + T.n;
+    var pu = b.getAttribute("data-pay-url"); $("#dlgGo").textContent = pu ? "Reserve for " + T.dep : "Email me the reservation link";
+    if (pu) $("#dlgFine").textContent = "Secure checkout by Stripe opens in this tab. The deposit is refundable on request before launch.";
     var dl = clear($("#dlgFour"));
     row(dl, "1. What you get", T.get); row(dl, "2. Price", T.price); row(dl, "3. What you save", T.save);
     row(dl, "4. Deposit", T.dep + ", refundable on request before launch only. It reserves the founding price; it is not a subscription payment. The price shown is the price you pay at checkout.");
@@ -207,7 +209,7 @@ $$("[data-reserve]").forEach(function (b) {
 });
 function closeDlg() { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
 $("#dlgClose").addEventListener("click", closeDlg);
-$("#dlgGo").addEventListener("click", function () { lastBtn = null; closeDlg(); goJoin(); });
+$("#dlgGo").addEventListener("click", function () { /* pay-wired */ var u = lastBtn && lastBtn.getAttribute("data-pay-url"); if (u) { window.location.assign(u); return; } lastBtn = null; closeDlg(); goJoin(); });
 dlg.addEventListener("close", function () { if (lastBtn) lastBtn.focus(); });
 dlg.addEventListener("click", function (e) { if (e.target === dlg) closeDlg(); });
 
@@ -215,8 +217,8 @@ dlg.addEventListener("click", function (e) { if (e.target === dlg) closeDlg(); }
 (function () {
   var a = $("#pbBuy"), note = $("#pbNote"), u = safeUrl(PLAYBOOK_URL);
   if (!u) return;   // no live checkout link yet: keep "Email me the Playbook link"
-  a.textContent = "Buy the Playbook · $49"; a.href = u; a.target = "_blank"; a.rel = "noopener noreferrer"; a.removeAttribute("data-join");
+  a.textContent = "Buy the Playbook · $49"; a.href = u; a.removeAttribute("target"); a.rel = "noopener"; a.removeAttribute("data-join");
   a.removeEventListener("click", goJoin);
-  note.textContent = "Secure checkout opens in a new tab. A digital download, delivered right away.";
+  note.textContent = "Secure checkout by Stripe opens in this tab. A digital download, delivered right away.";
 })();
 })();
