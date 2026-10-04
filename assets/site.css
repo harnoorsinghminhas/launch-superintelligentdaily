@@ -227,3 +227,6 @@ dialog::backdrop{background:rgba(27,19,64,.6)}
   .deck-plans .deck-nav{display:none}
   .snap:not(.plans){grid-auto-columns:340px}
 }
+
+/* si-guide: the free Superintelligence (SI) Guide card (shared snippet, _gen/si_guide.py) */
+.sg{padding:4px 0 28px}.sg-card{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 22px;box-sizing:border-box;width:min(100% - 32px,52rem);margin:0 auto;padding:18px 22px;background:var(--tint);border:1px solid var(--soft);border-radius:12px;text-align:left}.sg-txt{flex:1 1 17rem;min-width:0}.sg-card h2{margin:0 0 4px;font:700 1.25rem/1.25 inherit;letter-spacing:0;text-transform:none;max-width:none;color:var(--ink)}.sg-card p{margin:0;font-size:1rem;line-height:1.5;color:var(--ink2)}.sg-card p b{color:var(--ink)}.sg .btn.sg-btn{display:inline-flex;align-items:center;justify-content:center;flex:none;width:auto;text-decoration:none;text-align:center;white-space:normal}.sg .btn.sg-btn,.sg .btn.sg-btn:hover{color:var(--btnink)}@media (max-width:520px){.sg-card{padding:16px}.sg .btn.sg-btn{width:100%}}
